@@ -1,59 +1,70 @@
-# FirstNgApp
+# Counter & ToDos App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+A simple Angular application demonstrating the use of signals, standalone components, pipes, services, and directives. It combines a counter feature with a Todo list fetched from an API.
 
-## Development server
+## 🧩 Features
 
-To start a local development server, run:
+- Counter component using Angular signals
+- Greeting component with dynamic input
+- Todo list fetched from a REST API
+- Custom directive to highlight completed todos
+- Filter pipe for live todo searching
+- Component interaction using `@input`, `@output`, and signals
+- Keyboard event handling
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Angular CLI](https://angular.io/cli)
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/counter-todos-app.git
+cd counter-todos-app
+npm install
+```
+
+## Run the Application
 
 ```bash
 ng serve
 ```
+Visit http://localhost:4200 in your browser.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Components overview
 
-## Code scaffolding
+`CounterComponent`
+- Simple signal-based counter with increment, decrement, and reset.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+`GreetingComponent`
+- Displays a greeting message using input() from Angular signals.
+ 
+`TodoItemComponent`
+- Represents a single Todo.
+- Emits a todoToggled event on click.
 
-```bash
-ng generate component component-name
-```
+`HomeComponent`
+- Displays greeting and counter components.
+- Logs keyboard events.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+`TodosComponent`
+- Fetches and displays todos.
+- Includes a search input and highlights completed items.
 
-```bash
-ng generate --help
-```
+## Services
 
-## Building
+`TodosService`
+Fetches todos from: https://jsonplaceholder.typicode.com/todos
 
-To build the project run:
+## Pipes
 
-```bash
-ng build
-```
+`FilterTodosPipe`
+- Filters todos based on a search string (case-insensitive).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Directives
 
-## Running unit tests
+`HighlightCompletedTodoDirective`
+- Adds styles (strikethrough and background color) to completed todos dynamically via signals.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
